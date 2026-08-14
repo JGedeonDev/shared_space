@@ -228,7 +228,7 @@ image.setAttribute("height", NODE_SIZE);
 // If there is no photo, show the placeholder.
 image.setAttribute(
     "href",
-    node.image || "placeholder.svg"
+    node.image || "images/default.png"
 );
 
 
