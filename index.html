@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SharedSpace</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    
+
+<div class="homeContainer">
+
+
+    
+  <svg 
+    xmlns="http://w3.org" 
+    viewBox="0 0 100 100" 
+    class="mainStar"
+  >
+    <path 
+      fill="currentColor" 
+        d="
+        M 50,0 
+        C 50,35 59,50 90,50 
+        C 59,50 50,65 50,100 
+        C 50,65 41,50 10,50 
+        C 41,50 50,35 50,0 
+        Z
+      " 
+    />
+
+    </svg>
+
+    <div class="login">
+    <input id="username" type="text" name="username" placeholder="Enter username" required>
+    <input id="password" type="text" name="password" placeholder="Enter password" required> 
+    </div>
+
+<!-- Removed text
+    <div class="homeText">
+    <h2 id="homeTextTop">
+        Strangers in one place;
+    </h2>
+    <h2 id="homeTextBottom">
+        Community must be in place.
+    </h2>
+    </div>
+-->
+</div>
+
+<!-- Area where the tree is displayed -->
+ 
+<div id="treeContainer">
+
+    <!-- JavaScript draws the branches and images here -->
+    <svg id="tree">
+        <defs>
+    <path id="starShape"
+      d="
+        M 50,0
+        C 50,35 59,50 90,50
+        C 59,50 50,65 50,100
+        C 50,65 41,50 10,50
+        C 41,50 50,35 50,0
+        Z
+      "
+    />
+    </defs>
+    </svg>
+
+</div>
+
+<!-- Hidden photo picker -->
+<input
+    type="file"
+    id="fileInput"
+    accept="image/*"
+    capture="environment"
+>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

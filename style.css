@@ -1,0 +1,152 @@
+
+/* Remove default browser spacing */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    
+    /* Make the page fill the screen */
+    html,
+    body {
+    width: 100%;
+    height: 100%;
+    }
+    
+    /* Page color */
+    body {
+    background: #111;
+    overflow: hidden;
+    }
+
+    /* Kinda doesn't have a purpose now due to removed assets */
+    .homeContainer {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Removed background concepts, used the same image twice to 
+    compensate for the background cutting off on some screen sizes */
+    #homeImage {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+        #homeImage2 {
+        display: flex;
+        align-items: end;
+        width: 100%;
+
+    }
+    /* Text that was gonna be in the corner, removed as of now */
+    #homeTextTop {
+        position: fixed;    
+        top: 90%;
+        left: 20%;
+        transform: translate(-50%, -50%); 
+
+        width: 30vw;         
+        height: 30vw;        
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    #homeTextBottom {
+        position: fixed;    
+        top: 90%;
+        left: 20%;
+        transform: translate(-50%, -50%); 
+
+        width: 30vw;         
+        height: 30vw;        
+        display: flex;
+        justify-content: flex-start;  
+    }
+
+    /* Star centered on the homescreen */
+    .mainStar {
+      position: fixed;    
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); 
+
+      width: 50vmin;
+      height: 50vmin;          
+      
+      stroke: white;        
+    }
+
+    .login {
+        display: none;
+    }
+
+    #username {
+      position: fixed;    
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%); 
+
+      width: 30vmin;           
+      height: 5vmin;      
+    }
+
+    #password {
+      position: fixed;    
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      
+      width: 30vmin;           
+      height: 5vmin;   
+    }
+
+    #username, #password {
+    text-align: center; /* or left / right */
+    }
+
+    /* Originally had text, unused as of now */
+    h2 {
+        color: white; 
+    }
+    
+
+    label {
+        color: white;
+    }
+    
+    /* The tree can become larger than the screen */
+    #treeContainer {
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    }
+    
+    /* Drawing area for SVG */
+    #tree {
+    display: block;
+    }
+    
+    /* Lines connecting the nodes */
+    .branch {
+    stroke: #999;
+    stroke-width: 2;
+    }
+    
+    /* Photos */
+    .node-image {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    }
+    
+    /* Empty nodes are slightly transparent */
+    .empty {
+    opacity: 0.4;
+    }
+    
+    /* The file is opened in JavaScript */
+    #fileInput {
+    display: none;
+    }
