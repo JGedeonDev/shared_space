@@ -103,7 +103,7 @@
     }
 
     #username, #password {
-    text-align: center; /* or left / right */
+    text-align: center; 
     }
 
     /* Originally had text, unused as of now */

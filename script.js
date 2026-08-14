@@ -16,7 +16,7 @@ const homeContainer = document.querySelector(".homeContainer");
 // SETTINGS
 // --------------------------------------
 
-// Change these to change the tree's appearance.
+// Change these to change the tree's appearance
 const NODE_SIZE = 100; // Size of each photo
 const DISTANCE = 300; // Distance between nodes
 const PADDING = 200; // Empty space around the tree
@@ -28,17 +28,17 @@ const PADDING = 200; // Empty space around the tree
 // TREE DATA
 // --------------------------------------
 
-// Every photo/node is stored here.
+// Every photo/node is stored here
 const nodes = {};
 
-// Used to give each node a unique ID.
+// Used to give each node a unique ID
 let nextId = 0;
 
-// Remembers which empty node the user clicked.
+// Remembers which empty node the user clicked
 let selectedNode = null;
 
 // --------------------------------------
-// CREATE THE ROOT NODE
+// CREATE THE ROOT NODE IF USER LOGIN IS TRUE
 // --------------------------------------
 
 mainStar.addEventListener("click", (event) => {
@@ -91,7 +91,7 @@ return nodes[id];
 
 function drawTree() {
 
-    // Remove the old drawing.
+    // Remove the old drawing
     tree.innerHTML = "";
 
     const allNodes = Object.values(nodes);
@@ -100,7 +100,7 @@ function drawTree() {
         return;
     }
 
-    // Find how large the tree is.
+    // Find how large the tree is
     let minX = Infinity;
     let maxX = -Infinity;
     let minY = Infinity;
@@ -116,11 +116,11 @@ function drawTree() {
 
     });
 
-    // Size of the actual tree.
+    // Size of the actual tree
     const treeWidth = maxX - minX;
     const treeHeight = maxY - minY;
 
-    // Make the SVG large enough for the entire tree.
+    // Make the SVG large enough for the entire tree
     const width = Math.max(
         container.clientWidth,
         treeWidth + PADDING * 2
@@ -134,11 +134,11 @@ function drawTree() {
     tree.setAttribute("width", width);
     tree.setAttribute("height", height);
 
-    // CENTER the entire tree inside the SVG.
+    // Center the entire tree inside the SVG
     const offsetX = (width - treeWidth) / 2 - minX;
     const offsetY = (height - treeHeight) / 2 - minY;
 
-    // Draw branches first.
+    // Draw branches first
     allNodes.forEach(node => {
 
         if (node.parent === null) {
@@ -149,7 +149,7 @@ function drawTree() {
 
     });
 
-    // Draw photos second.
+    // Draw photos second
     allNodes.forEach(node => {
 
         drawNode(node, offsetX, offsetY);
@@ -209,7 +209,7 @@ const image = document.createElementNS(
 );
 
 
-// Position the image around its center.
+// Position the image around its center
 image.setAttribute(
     "x",
     node.x + offsetX - NODE_SIZE / 2
@@ -224,8 +224,8 @@ image.setAttribute("width", NODE_SIZE);
 image.setAttribute("height", NODE_SIZE);
 
 
-// Show the uploaded photo.
-// If there is no photo, show the placeholder.
+// Show the uploaded photo
+// If there is no photo, show the placeholder
 image.setAttribute(
     "href",
     node.image || "images/default.png"
@@ -240,7 +240,7 @@ image.setAttribute(
 );
 
 
-// Empty nodes can be clicked to upload a photo.
+// Empty nodes can be clicked to upload a photo
 image.addEventListener("click", function() {
 
     if (node.image === null) {
@@ -264,27 +264,27 @@ fileInput.addEventListener("change", function() {
 
 const file = fileInput.files[0];
 
-// Stop if no photo was selected.
+// Stop if no photo was selected
 if (!file || !selectedNode) {
     return;
 }
 
 
-// Create a temporary URL for the photo.
+// Create a temporary URL for the photo
 selectedNode.image = URL.createObjectURL(file);
 
 
-// Create new branches from this photo.
+// Create new branches from this photo
 createChildren(selectedNode);
 
 
-// Reset the file picker.
+// Reset the file picker
 fileInput.value = "";
 
 selectedNode = null;
 
 
-// Redraw the tree.
+// Redraw the tree
 drawTree();
 
 });
@@ -295,7 +295,7 @@ drawTree();
 
 function createChildren(parent) {
 
-// The first/root photo gets four branches.
+// The first/root photo gets four branches
 if (parent.isRoot) {
 
     createChild(parent, 0);
@@ -306,7 +306,7 @@ if (parent.isRoot) {
 }
 
 
-// Every other photo gets two branches.
+// Every other photo gets two branches
 createChild(
     parent,
     parent.angle - 30
@@ -329,7 +329,7 @@ function createChild(parent, angle) {
 const radians = angle * Math.PI / 180;
 
 
-// Calculate the child's position.
+// Calculate the child's position
 const x =
     parent.x + Math.cos(radians) * DISTANCE;
 
@@ -337,7 +337,7 @@ const y =
     parent.y + Math.sin(radians) * DISTANCE;
 
 
-// Create the new node.
+// Create the new node
 createNode(
     x,
     y,
