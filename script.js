@@ -3,7 +3,7 @@
 // --------------------------------------
 
 firebase.initializeApp({
-  apiKey: "AIzaSyA5G7zwaqw4mCkN-FsRlRlTtzNYJJS1mt4",
+  apiKey: "",
   authDomain: "congressional-app-99a69.firebaseapp.com",
   projectId: "congressional-app-99a69",
   storageBucket: "congressional-app-99a69.firebasestorage.app",
