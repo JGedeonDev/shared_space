@@ -17,6 +17,7 @@ const db = firebase.firestore();
 // --------------------------------------
 const USE_FIREBASE = true; // Set to false to run without Firebase (to save limited data dear Camelia)
 const treeContainer = document.getElementById("treeContainer");
+const clickText = document.getElementById("clickText");
 const tree = document.getElementById("tree");
 const fileInput = document.getElementById("fileInput");
 const mainStar = document.querySelector(".mainStar");
@@ -112,6 +113,24 @@ mainStar.addEventListener("click", async () => {
   drawTree();
 
 });
+
+const LINE_GAP = 4;   // Space between the two lines, in the star's 100-unit box (about 1.3 x the font size)
+
+function updateAgainText() {
+  if (username.value !== "" && password.value !== "") {
+    // Fade "again" in while the two lines slide apart
+    againText.style.opacity = "1";
+    clickText.style.transform = "translateY(" + (-LINE_GAP / 2) + "px)";
+    againText.style.transform = "translateY(" + (LINE_GAP / 2) + "px)";
+  } else {
+    // "again" fades out in place while "click" slides back to the center
+    againText.style.opacity = "0";
+    clickText.style.transform = "translateY(0px)";
+  }
+}
+
+username.addEventListener("input", updateAgainText);
+password.addEventListener("input", updateAgainText);
 
 // The first empty placeholder in the center of the screen
 function createRoot() {

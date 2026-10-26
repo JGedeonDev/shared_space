@@ -79,6 +79,21 @@
       cursor: pointer;
     }
 
+    .mainStar text {
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.2s;
+    }
+    
+    #clickText,
+    #againText {
+        transition: transform 0.2s, opacity 0.2s;
+    }
+
+    #againText {
+        opacity: 0;
+    }
+
     .login {
         display: none;
     }
