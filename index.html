@@ -18,7 +18,7 @@
 
   <!-- Drawing of logo in svg-->
   <svg 
-    xmlns="http://w3.org" 
+    xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 100 100" 
     class="mainStar"
   >
@@ -38,7 +38,7 @@
 <!-- Login info is displayed once the star is clicked -->
     <div class="login">
     <input id="username" type="text" name="username" placeholder="Enter username" required>
-    <input id="password" type="text" name="password" placeholder="Enter password" required> 
+    <input id="password" type="password" name="password" placeholder="Enter password" required> 
     </div>
 
 <!-- Removed text
@@ -75,7 +75,39 @@
 
 </div>
 
-<!-- Hidden photo picker -->
+<div id="zoomedContainer">
+    <div id="photoStack">
+    <img id="highlight">
+
+    <div id="reactionBar">
+      <div id="reactionList"></div>
+      <button id="addReaction">+</button>
+    </div>
+
+    <div id="emojiPicker">
+      <emoji-picker class="dark"></emoji-picker>
+    </div>
+  </div>
+
+
+  <img id="mnDownLeftArrow" src="images/missingno.png">
+  <img id="mnDownRightArrow" src="images/missingno.png">
+  <img id="downRightArrow" src="images/arrow.png">
+  <img id="downLeftArrow" src="images/arrow.png">
+  <img id="rightArrow" src="images/arrow.png">
+  <img id="mnRightArrow" src="images/missingno.png">
+  <img id="leftArrow" src="images/arrow.png">
+  <img id="mnLeftArrow" src="images/missingno.png">
+ <img id="upSecondArrow" src="images/arrow.png">
+  <img id="upArrow" class="upCenter" src="images/arrow.png">
+  <img id="mnUpArrow" src="images/missingno.png">
+  <img id="downArrow" src="images/arrow.png">
+  <img id="mnDownArrow" src="images/missingno.png">
+  <img id="exit" src="images/exit.png">
+
+</div>
+
+<!-- Hidden photo picker... -->
 <input
     type="file"
     id="fileInput"
@@ -83,6 +115,10 @@
     capture="environment"
 >
 
+<script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@1.29.1/index.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script src="script.js"></script>
 
 </body>
